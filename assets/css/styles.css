@@ -53,7 +53,7 @@
       opacity: 0.35;
     }
 
-    /* Robotron + Andriy вЂ” match the original Kyiv Runner characters */
+    /* Robotron + Andriy — match the original Kyiv Runner characters */
     .duo-stage{position:relative;min-height:520px;overflow:hidden;border-radius:28px;background:radial-gradient(circle at 50% 25%,rgba(0,180,255,.16),transparent 48%),linear-gradient(180deg,#12263d,#08121f 78%);border:1px solid rgba(0,210,255,.18)}
     .duo-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 70%,rgba(0,0,0,.45));pointer-events:none}
     .duo-grid{position:absolute;inset:48% -8% -25%;transform:perspective(360px) rotateX(62deg);background-image:linear-gradient(rgba(65,185,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(65,185,255,.13) 1px,transparent 1px);background-size:38px 38px;animation:gridMove 4s linear infinite}

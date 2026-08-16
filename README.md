@@ -1,16 +1,16 @@
-﻿# Kyiv Runner Web
+# Kyiv Runner Web
 
-РЎС‚Р°С‚РёС‡РЅРёР№ СЃР°Р№С‚-РїСЂРµР·РµРЅС‚Р°С†С–СЏ РґР»СЏ Kyiv Runner.
+Статичний сайт-презентація для Kyiv Runner.
 
-## РЎС‚СЂСѓРєС‚СѓСЂР°
+## Структура
 
-- `index.html` - HTML-РєР°СЂРєР°СЃ СЃС‚РѕСЂС–РЅРєРё.
-- `assets/css/styles.css` - РІРёРЅРµСЃРµРЅС– СЃС‚РёР»С– Р· preview-С„Р°Р№Р»Сѓ.
-- `assets/js/tailwind.config.js` - РєРѕРЅС„С–Рі Tailwind CDN.
-- `assets/js/main.js` - С–РЅС‚РµСЂР°РєС‚РёРІРЅР° Р»РѕРіС–РєР° СЃС‚РѕСЂС–РЅРєРё.
-- `assets/images/` - РїР°РїРєР° РґР»СЏ РјР°Р№Р±СѓС‚РЅС–С… Р·РѕР±СЂР°Р¶РµРЅСЊ СЃР°Р№С‚Сѓ.
-- `.github/workflows/pages.yml` - РґРµРїР»РѕР№ РЅР° GitHub Pages.
+- `index.html` - HTML-каркас сторінки.
+- `assets/css/styles.css` - винесені стилі з preview-файлу.
+- `assets/js/tailwind.config.js` - конфіг Tailwind CDN.
+- `assets/js/main.js` - інтерактивна логіка сторінки.
+- `assets/images/` - папка для майбутніх зображень сайту.
+- `.github/workflows/pages.yml` - деплой на GitHub Pages.
 
-## Р”РµРїР»РѕР№
+## Деплой
 
-Push Сѓ `main` Р·Р°РїСѓСЃРєР°С” GitHub Actions workflow РґР»СЏ GitHub Pages.
+Push у `main` запускає GitHub Actions workflow для GitHub Pages.
