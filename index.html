@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kiyv Runner com.ua — Run Through Kyiv. Survive The City.</title>
+  <title>Kiyv Runner com.ua вЂ” Run Through Kyiv. Survive The City.</title>
   <meta name="description" content="Kyiv Runner is an AAA-styled fast-paced mobile endless runner set across the iconic streets, bridges, and districts of Kyiv, Ukraine." />
 
   <!-- Google Fonts: Orbitron & Outfit -->
@@ -16,161 +16,8 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              dark: '#07090e',
-              card: '#0e131f',
-              blue: '#00d2ff',
-              navy: '#0057b7', // Ukrainian Blue
-              yellow: '#ffd700', // Ukrainian Gold
-              amber: '#ffaa00',
-              neon: '#00f2fe',
-              accent: '#ff2a5f'
-            }
-          },
-          fontFamily: {
-            gaming: ['Orbitron', 'sans-serif'],
-            sans: ['Outfit', 'sans-serif']
-          },
-          boxShadow: {
-            'glow-blue': '0 0 35px -5px rgba(0, 210, 255, 0.45)',
-            'glow-yellow': '0 0 35px -5px rgba(255, 215, 0, 0.45)',
-            'glow-accent': '0 0 30px -5px rgba(255, 42, 95, 0.4)'
-          },
-          animation: {
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'float': 'float 6s ease-in-out infinite',
-            'grid-scroll': 'gridMove 20s linear infinite'
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-12px)' }
-            },
-            gridMove: {
-              '0%': { backgroundPosition: '0 0' },
-              '100%': { backgroundPosition: '0 40px' }
-            }
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #07090e; }
-    ::-webkit-scrollbar-thumb { background: #1a233a; border-radius: 4px; border: 1px solid rgba(0,210,255,0.2); }
-    ::-webkit-scrollbar-thumb:hover { background: #00d2ff; }
-
-    /* Glassmorphism Styles */
-    .glass-card {
-      background: rgba(14, 19, 31, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .glass-card-hover {
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .glass-card-hover:hover {
-      transform: translateY(-6px);
-      border-color: rgba(0, 210, 255, 0.4);
-      box-shadow: 0 16px 40px -10px rgba(0, 210, 255, 0.2);
-    }
-
-    /* Cyber Grid */
-    .cyber-grid {
-      background-image: 
-        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    /* Text Glows */
-    .text-glow-yellow {
-      text-shadow: 0 0 18px rgba(255, 215, 0, 0.55), 0 0 35px rgba(255, 170, 0, 0.3);
-    }
-    .text-glow-blue {
-      text-shadow: 0 0 18px rgba(0, 210, 255, 0.6), 0 0 35px rgba(0, 87, 183, 0.4);
-    }
-
-    /* Parallax Silhouettes */
-    .city-silhouette-bg {
-      background: linear-gradient(180deg, transparent 0%, rgba(7, 9, 14, 0.95) 85%);
-    }
-
-    /* Scanline effect */
-    .scanlines::before {
-      content: " ";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
-      background-size: 100% 4px;
-      pointer-events: none;
-      z-index: 20;
-      opacity: 0.35;
-    }
-
-    /* Robotron + Andriy — match the original Kyiv Runner characters */
-    .duo-stage{position:relative;min-height:520px;overflow:hidden;border-radius:28px;background:radial-gradient(circle at 50% 25%,rgba(0,180,255,.16),transparent 48%),linear-gradient(180deg,#12263d,#08121f 78%);border:1px solid rgba(0,210,255,.18)}
-    .duo-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 70%,rgba(0,0,0,.45));pointer-events:none}
-    .duo-grid{position:absolute;inset:48% -8% -25%;transform:perspective(360px) rotateX(62deg);background-image:linear-gradient(rgba(65,185,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(65,185,255,.13) 1px,transparent 1px);background-size:38px 38px;animation:gridMove 4s linear infinite}
-    .character-stage{position:absolute;bottom:45px;width:250px;height:390px;display:flex;align-items:flex-end;justify-content:center;z-index:5;animation:stageFloat 3.2s ease-in-out infinite}
-    .character-stage.left{left:8%;animation-delay:-1.1s}.character-stage.right{right:8%;animation-delay:-2s}
-    .character-shadow{position:absolute;bottom:0;width:155px;height:24px;border-radius:50%;background:rgba(0,0,0,.55);filter:blur(8px);animation:shadowPulse 2s ease-in-out infinite}
-
-    /* Robotron from the reference screenshot: chunky blue body, square eyes, pink mouth, multicolour chest buttons */
-    .robotron{position:relative;width:150px;height:320px;filter:drop-shadow(0 0 18px rgba(0,153,255,.38));animation:robotBob 1.9s ease-in-out infinite}
-    .robotron .antenna{position:absolute;left:70px;top:0;width:6px;height:34px;background:#18a9ee;border-radius:4px}
-    .robotron .antenna::after{content:"";position:absolute;left:-8px;top:-10px;width:22px;height:22px;border-radius:50%;background:#ff3b91;box-shadow:0 0 15px #ff3b91;animation:antennaPulse 1.1s ease-in-out infinite}
-    .robotron .head{position:absolute;left:24px;top:32px;width:102px;height:82px;border-radius:20px;background:linear-gradient(145deg,#168de0,#0870c7 70%,#075aa7);border:4px solid #0c79d1;box-shadow:inset 0 8px 12px rgba(255,255,255,.08),0 7px 16px rgba(0,0,0,.25)}
-    .robotron .head::before,.robotron .head::after{content:"";position:absolute;top:27px;width:18px;height:31px;border-radius:8px;background:#0872c9}.robotron .head::before{left:-15px}.robotron .head::after{right:-15px}
-    .robotron .eye{position:absolute;top:22px;width:28px;height:18px;background:#dffaff;border-radius:3px;box-shadow:inset 0 0 0 5px #2bdcff,0 0 10px rgba(0,220,255,.7);animation:robotBlink 3.6s infinite}
-    .robotron .eye::after{content:"";position:absolute;inset:4px;background:#fff}.robotron .eye.l{left:18px}.robotron .eye.r{right:18px}
-    .robotron .head::marker{display:none}
-    .robotron .chest{position:absolute;left:18px;top:122px;width:114px;height:116px;border-radius:17px;background:linear-gradient(145deg,#1689d9,#0759ad);border:4px solid #0b74c9;box-shadow:inset 0 8px 15px rgba(255,255,255,.08)}
-    .robotron .chest::before{content:"";position:absolute;left:20px;top:20px;width:70px;height:68px;border-radius:10px;background:#064f9c;box-shadow:inset 0 0 12px rgba(0,0,0,.3)}
-    .robotron .core{position:absolute;z-index:2;left:31px;top:27px;width:13px;height:13px;border-radius:50%;background:#ff334e;box-shadow:34px 0 #22e9e0,17px 22px #23bfff,51px 22px #ff38b8,0 22px #ffd31a;animation:corePulse 1.3s ease-in-out infinite}
-    .robotron .chest::after{content:"";position:absolute;left:17px;top:17px;width:9px;height:9px;background:#ffd31a;box-shadow:0 0 8px #ffd31a}
-    .robotron .arm{position:absolute;top:126px;width:30px;height:103px;border-radius:12px;background:#0874ca;border:4px solid #0a69bd;transform-origin:top center}
-    .robotron .arm.l{left:-2px;transform:rotate(7deg);animation:armL 1s ease-in-out infinite}.robotron .arm.r{right:-2px;transform:rotate(-7deg);animation:armR 1s ease-in-out infinite}
-    .robotron .leg{position:absolute;top:230px;width:34px;height:92px;border-radius:8px;background:#086ac0;border:4px solid #075aa8;transform-origin:top}
-    .robotron .leg.l{left:39px;animation:legL 1s ease-in-out infinite}.robotron .leg.r{right:39px;animation:legR 1s ease-in-out infinite}
-    .robotron .head + .chest + .arm{}
-
-    /* Andriy from the reference screenshot: simple friendly cartoon runner */
-    .andriy{position:relative;width:165px;height:340px;filter:drop-shadow(0 0 15px rgba(0,160,255,.25));animation:andriyBob 1.8s ease-in-out infinite}
-    .andriy .head{position:absolute;left:48px;top:18px;width:70px;height:70px;border-radius:50%;background:#ffc18d;border:3px solid #f0a76c;z-index:4}
-    .andriy .hair{position:absolute;left:46px;top:12px;width:74px;height:27px;background:#e98a37;border-radius:50% 50% 42% 35%;z-index:5;transform:rotate(-4deg)}
-    .andriy .eye{position:absolute;top:46px;width:6px;height:6px;border-radius:50%;background:#333;z-index:7}.andriy .eye.l{left:68px}.andriy .eye.r{left:94px}
-    .andriy .smile{position:absolute;left:72px;top:57px;width:23px;height:10px;border-bottom:3px solid #8f4b32;border-radius:0 0 18px 18px;z-index:7}
-    .andriy .body{position:absolute;left:42px;top:86px;width:81px;height:112px;border-radius:15px 15px 10px 10px;background:#086ed0;border:4px solid #075eaf;z-index:3}
-    .andriy .shirt-stripe{position:absolute;left:69px;top:90px;width:27px;height:103px;background:#ffd31a;border-radius:5px;z-index:4}
-    .andriy .arm{position:absolute;top:98px;width:25px;height:95px;border-radius:16px;background:#ffc18d;border:4px solid #f0a76c;transform-origin:top;z-index:2}
-    .andriy .arm.l{left:22px;transform:rotate(57deg);animation:andriyArmL 1s ease-in-out infinite}.andriy .arm.r{right:20px;transform:rotate(-57deg);animation:andriyArmR 1s ease-in-out infinite}
-    .andriy .leg{position:absolute;top:192px;width:29px;height:111px;border-radius:8px;background:#0964bd;border:4px solid #0755a1;transform-origin:top;z-index:1}.andriy .leg.l{left:50px;animation:legL 1.05s ease-in-out infinite}.andriy .leg.r{right:50px;animation:legR 1.05s ease-in-out infinite}
-    .andriy .shoe{position:absolute;bottom:21px;width:50px;height:17px;border-radius:12px;background:#153a67;z-index:1}.andriy .shoe.l{left:36px}.andriy .shoe.r{right:36px}
-
-    .duo-label{position:absolute;top:28px;padding:8px 14px;border-radius:999px;font:700 11px/1 Orbitron,sans-serif;letter-spacing:.12em;text-transform:uppercase;z-index:10}.duo-label.robot{left:28px;color:#29d7ff;border:1px solid rgba(0,210,255,.4);background:rgba(0,210,255,.08)}.duo-label.andriy{right:28px;color:#ffd31a;border:1px solid rgba(255,215,0,.4);background:rgba(255,215,0,.08)}
-    @keyframes stageFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-    @keyframes robotBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    @keyframes andriyBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-    @keyframes shadowPulse{0%,100%{transform:scaleX(1);opacity:.55}50%{transform:scaleX(.78);opacity:.3}}
-    @keyframes antennaPulse{50%{transform:scale(1.12);filter:brightness(1.3)}}
-    @keyframes robotBlink{0%,45%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.12)}}
-    @keyframes corePulse{50%{transform:scale(1.12);filter:brightness(1.35)}}
-    @keyframes armL{50%{transform:rotate(24deg)}}@keyframes armR{50%{transform:rotate(-24deg)}}
-    @keyframes legL{50%{transform:rotate(-10deg)}}@keyframes legR{50%{transform:rotate(10deg)}}
-    @keyframes andriyArmL{50%{transform:rotate(45deg)}}@keyframes andriyArmR{50%{transform:rotate(-45deg)}}
-    @media(max-width:700px){.character-stage.left{left:-18%}.character-stage.right{right:-18%}.duo-stage{min-height:470px}.duo-label{font-size:9px}.character-stage{transform:scale(.8);transform-origin:bottom center}}
-  </style>
+  <script src="./assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body class="bg-brand-dark text-slate-200 font-sans antialiased overflow-x-hidden selection:bg-brand-blue selection:text-black">
 
@@ -268,7 +115,7 @@
       <!-- Top Badge -->
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-brand-yellow/30 text-brand-yellow text-xs sm:text-sm font-semibold tracking-wider uppercase mb-8 animate-pulse-slow">
         <span class="w-2 h-2 rounded-full bg-brand-yellow animate-ping"></span>
-        Mobile Endless Runner • Made in Ukraine 🇺🇦
+        Mobile Endless Runner вЂў Made in Ukraine рџ‡єрџ‡¦
       </div>
 
       <!-- Main Title -->
@@ -354,7 +201,7 @@
             </div>
             <h3 class="font-gaming text-xl font-bold text-white uppercase tracking-wider mb-3">EXPLORE KYIV</h3>
             <p class="text-slate-300 text-sm leading-relaxed">
-              Explore recognizable urban environments inspired by Kyiv — from Khreshchatyk and Podil to futuristic neon-lit Dnipro river banks.
+              Explore recognizable urban environments inspired by Kyiv вЂ” from Khreshchatyk and Podil to futuristic neon-lit Dnipro river banks.
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-slate-800 text-xs font-mono text-brand-blue flex items-center justify-between">
@@ -501,7 +348,7 @@
       <div class="text-center max-w-3xl mx-auto mb-12">
         <span class="text-brand-blue font-mono font-bold tracking-widest text-xs uppercase px-3 py-1 rounded bg-brand-blue/10 border border-brand-blue/30">NEW HEROES</span>
         <h2 class="font-gaming text-3xl sm:text-5xl font-black uppercase text-white mt-4">ROBOTRON <span class="text-brand-yellow">+</span> ANDRIY</h2>
-        <p class="text-slate-400 mt-4">Two animated characters from the Kyiv Runner universe — the friendly Robotron-9000 and Andriy, the blue-and-yellow runner.</p>
+        <p class="text-slate-400 mt-4">Two animated characters from the Kyiv Runner universe вЂ” the friendly Robotron-9000 and Andriy, the blue-and-yellow runner.</p>
       </div>
       <div class="duo-stage">
         <div class="duo-grid"></div>
@@ -932,7 +779,7 @@
             <div class="font-gaming font-bold text-lg sm:text-2xl text-white tracking-widest uppercase mt-6">
               Kyiv Runner Official Teaser
             </div>
-            <div class="text-xs font-mono text-brand-yellow/90 mt-1">4K Ultra HD • Mobile Gameplay Premiere</div>
+            <div class="text-xs font-mono text-brand-yellow/90 mt-1">4K Ultra HD вЂў Mobile Gameplay Premiere</div>
           </div>
 
           <!-- Video Mockup Controls Bar -->
@@ -1052,7 +899,7 @@
             The high-octane endless runner set in Ukraine's capital city. Sprint through authentic streets, beat records, and master the urban rhythm.
           </p>
           <div class="text-xs font-mono text-brand-yellow/90 font-semibold flex items-center gap-2 pt-2">
-            <span>Made with passion in Ukraine</span> 🇺🇦
+            <span>Made with passion in Ukraine</span> рџ‡єрџ‡¦
           </div>
         </div>
 
@@ -1096,7 +943,7 @@
       <!-- Copyright Bar -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
         <div>
-          © 2026 Kyiv Runner. All rights reserved.
+          В© 2026 Kyiv Runner. All rights reserved.
         </div>
         <div class="flex gap-6">
           <a href="#" class="hover:text-slate-300">Privacy Policy</a>
@@ -1142,7 +989,7 @@
       <div class="w-full flex justify-between items-center mt-4 px-2 text-xs font-mono">
         <div class="text-slate-300">SCORE: <span id="game-score" class="text-brand-yellow font-bold">0</span></div>
         <button onclick="jumpMiniGame()" class="sm:hidden px-4 py-2 bg-brand-blue text-slate-950 font-bold rounded-lg uppercase">
-          TAP TO JUMP 🦘
+          TAP TO JUMP рџ¦
         </button>
         <div class="text-slate-400">CONTROLS: [SPACEBAR / TOUCH]</div>
       </div>
@@ -1160,7 +1007,7 @@
         <div class="absolute inset-0 cyber-grid opacity-30"></div>
         <div class="text-center p-8 flex flex-col items-center">
           <i class="fa-solid fa-film text-6xl text-brand-yellow animate-bounce mb-4"></i>
-          <h3 class="font-gaming text-2xl sm:text-3xl font-black text-white uppercase">KYIV RUNNER — OFFICIAL CINEMATIC</h3>
+          <h3 class="font-gaming text-2xl sm:text-3xl font-black text-white uppercase">KYIV RUNNER вЂ” OFFICIAL CINEMATIC</h3>
           <p class="text-slate-400 text-sm max-w-md mt-2 font-mono">
             Trailer footage showcasing high-speed gameplay across Khreshchatyk and Podil.
           </p>
@@ -1191,304 +1038,6 @@
 
 
   <!-- ==================== JAVASCRIPT LOGIC ==================== -->
-  <script>
-    // -------------------------------------------------------------
-    // 1. Mobile Menu Toggle
-    // -------------------------------------------------------------
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-    });
-
-    // -------------------------------------------------------------
-    // 2. Hero Background Canvas Particles & Ambient Sparks
-    // -------------------------------------------------------------
-    const heroCanvas = document.getElementById('hero-particles');
-    const hCtx = heroCanvas.getContext('2d');
-    let hParticles = [];
-
-    function resizeHeroCanvas() {
-      heroCanvas.width = window.innerWidth;
-      heroCanvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeHeroCanvas);
-    resizeHeroCanvas();
-
-    class Particle {
-      constructor() {
-        this.reset();
-      }
-      reset() {
-        this.x = Math.random() * heroCanvas.width;
-        this.y = Math.random() * heroCanvas.height;
-        this.size = Math.random() * 2.5 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.8;
-        this.speedY = -(Math.random() * 0.8 + 0.3);
-        this.color = Math.random() > 0.5 ? '#00d2ff' : '#ffd700';
-        this.alpha = Math.random() * 0.7 + 0.2;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.y < 0 || this.x < 0 || this.x > heroCanvas.width) {
-          this.reset();
-          this.y = heroCanvas.height + 10;
-        }
-      }
-      draw() {
-        hCtx.save();
-        hCtx.globalAlpha = this.alpha;
-        hCtx.fillStyle = this.color;
-        hCtx.shadowBlur = 8;
-        hCtx.shadowColor = this.color;
-        hCtx.beginPath();
-        hCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        hCtx.fill();
-        hCtx.restore();
-      }
-    }
-
-    for (let i = 0; i < 45; i++) {
-      hParticles.push(new Particle());
-    }
-
-    function animateHero() {
-      hCtx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
-      hParticles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animateHero);
-    }
-    animateHero();
-
-    // -------------------------------------------------------------
-    // 3. Playable Kyiv Runner Mini Arcade Game Canvas
-    // -------------------------------------------------------------
-    const gCanvas = document.getElementById('mini-game-canvas');
-    const gCtx = gCanvas.getContext('2d');
-    let gameRunning = false;
-    let gameLoopId;
-    let gScore = 0;
-
-    let runner = {
-      x: 60,
-      y: 130,
-      width: 24,
-      height: 36,
-      vy: 0,
-      gravity: 0.7,
-      jumpStrength: -11,
-      isGrounded: false
-    };
-
-    let obstacles = [];
-    let chestNuts = [];
-    let frameCount = 0;
-    const groundLevel = 175;
-
-    function resizeGameCanvas() {
-      gCanvas.width = 480;
-      gCanvas.height = 270;
-    }
-    resizeGameCanvas();
-
-    function jumpMiniGame() {
-      if (runner.isGrounded) {
-        runner.vy = runner.jumpStrength;
-        runner.isGrounded = false;
-      }
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.code === 'Space' && !document.getElementById('demo-modal').classList.contains('hidden')) {
-        e.preventDefault();
-        jumpMiniGame();
-      }
-    });
-
-    gCanvas.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      jumpMiniGame();
-    });
-
-    function startMiniGame() {
-      runner.y = 130;
-      runner.vy = 0;
-      obstacles = [];
-      chestNuts = [];
-      gScore = 0;
-      frameCount = 0;
-      gameRunning = true;
-      document.getElementById('game-over-screen').classList.add('hidden');
-      document.getElementById('game-score').innerText = '0';
-      loopGame();
-    }
-
-    function restartMiniGame() {
-      startMiniGame();
-    }
-
-    function loopGame() {
-      if (!gameRunning) return;
-      updateGame();
-      drawGame();
-      gameLoopId = requestAnimationFrame(loopGame);
-    }
-
-    function updateGame() {
-      frameCount++;
-      gScore += 1;
-      document.getElementById('game-score').innerText = Math.floor(gScore / 5);
-
-      // Runner physics
-      runner.vy += runner.gravity;
-      runner.y += runner.vy;
-      if (runner.y + runner.height >= groundLevel) {
-        runner.y = groundLevel - runner.height;
-        runner.vy = 0;
-        runner.isGrounded = true;
-      }
-
-      // Spawn Obstacles (Bogdan buses / road barriers)
-      if (frameCount % 100 === 0) {
-        obstacles.push({
-          x: gCanvas.width + 20,
-          y: groundLevel - 28,
-          width: 22,
-          height: 28,
-          speed: 4.5
-        });
-      }
-
-      // Update Obstacles & Collision Check
-      for (let i = obstacles.length - 1; i >= 0; i--) {
-        obstacles[i].x -= obstacles[i].speed;
-
-        // Hitbox collision
-        if (
-          runner.x < obstacles[i].x + obstacles[i].width &&
-          runner.x + runner.width > obstacles[i].x &&
-          runner.y < obstacles[i].y + obstacles[i].height &&
-          runner.y + runner.height > obstacles[i].y
-        ) {
-          endMiniGame();
-          return;
-        }
-
-        if (obstacles[i].x + obstacles[i].width < 0) {
-          obstacles.splice(i, 1);
-        }
-      }
-    }
-
-    function drawGame() {
-      gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-
-      // Sky Background
-      gCtx.fillStyle = '#0a0f1d';
-      gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height);
-
-      // Kyiv Distant Skyline silhouette
-      gCtx.fillStyle = '#141d33';
-      gCtx.fillRect(80, 80, 40, 95);
-      gCtx.fillRect(160, 50, 60, 125);
-      gCtx.fillRect(280, 70, 50, 105);
-      gCtx.fillRect(380, 90, 45, 85);
-
-      // Ground (Khreshchatyk pavement)
-      gCtx.fillStyle = '#1e293b';
-      gCtx.fillRect(0, groundLevel, gCanvas.width, gCanvas.height - groundLevel);
-
-      // Glowing Ground line
-      gCtx.fillStyle = '#00d2ff';
-      gCtx.fillRect(0, groundLevel, gCanvas.width, 2);
-
-      // Obstacles
-      obstacles.forEach(obs => {
-        gCtx.fillStyle = '#ffaa00'; // Yellow Barrier
-        gCtx.fillRect(obs.x, obs.y, obs.width, obs.height);
-        gCtx.fillStyle = '#000';
-        gCtx.fillRect(obs.x + 3, obs.y + 4, obs.width - 6, 6);
-      });
-
-      // Runner (Andriy)
-      gCtx.save();
-      gCtx.fillStyle = '#00d2ff';
-      gCtx.shadowColor = '#00d2ff';
-      gCtx.shadowBlur = 10;
-      // Head
-      gCtx.beginPath();
-      gCtx.arc(runner.x + runner.width/2, runner.y + 7, 7, 0, Math.PI*2);
-      gCtx.fill();
-      // Body
-      gCtx.fillStyle = '#ffd700';
-      gCtx.fillRect(runner.x + 4, runner.y + 14, runner.width - 8, 14);
-      // Legs
-      gCtx.fillStyle = '#00d2ff';
-      gCtx.fillRect(runner.x + 4, runner.y + 28, 5, 8);
-      gCtx.fillRect(runner.x + runner.width - 9, runner.y + 28, 5, 8);
-      gCtx.restore();
-    }
-
-    function endMiniGame() {
-      gameRunning = false;
-      cancelAnimationFrame(gameLoopId);
-      document.getElementById('final-score-text').innerText = 'Final Score: ' + Math.floor(gScore / 5);
-      document.getElementById('game-over-screen').classList.remove('hidden');
-    }
-
-    // Modal Triggers
-    function openDemoModal() {
-      document.getElementById('demo-modal').classList.remove('hidden');
-      startMiniGame();
-    }
-    function closeDemoModal() {
-      document.getElementById('demo-modal').classList.add('hidden');
-      gameRunning = false;
-      cancelAnimationFrame(gameLoopId);
-    }
-
-    function openTrailerModal() {
-      document.getElementById('trailer-modal').classList.remove('hidden');
-    }
-    function closeTrailerModal() {
-      document.getElementById('trailer-modal').classList.add('hidden');
-    }
-
-    function openLightbox(title, desc) {
-      document.getElementById('lightbox-title').innerText = title;
-      document.getElementById('lightbox-desc').innerText = desc;
-      document.getElementById('lightbox-modal').classList.remove('hidden');
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox-modal').classList.add('hidden');
-    }
-
-    function triggerNotify() {
-      document.getElementById('download').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function handlePreRegister(e) {
-      e.preventDefault();
-      document.getElementById('pre-reg-success').classList.remove('hidden');
-      e.target.reset();
-    }
-
-    // Navbar Scroll Background Transition
-    window.addEventListener('scroll', () => {
-      const header = document.getElementById('main-header');
-      if (window.scrollY > 40) {
-        header.classList.add('py-2', 'shadow-2xl', 'bg-slate-950/95');
-      } else {
-        header.classList.remove('py-2', 'shadow-2xl', 'bg-slate-950/95');
-      }
-    });
-  </script>
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>
