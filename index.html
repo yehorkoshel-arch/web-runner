@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kyiv Runner - українська браузерна гра-раннер про Київ і Львів."
+    />
+    <title>Kyiv Runner | Сторінка проєкту</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Kyiv Runner">
+        <span class="brand-mark">KR</span>
+        <span>Kyiv Runner</span>
+      </a>
+      <nav class="nav" aria-label="Головна навігація">
+        <a href="#game">Гра</a>
+        <a href="#cities">Міста</a>
+        <a href="#features">Можливості</a>
+        <a href="#updates">Оновлення</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="game" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img src="./assets/kyiv-skyline-generated.png" alt="" />
+          <div class="hero-road"></div>
+        </div>
+        <div class="hero-content">
+          <p class="eyebrow">Український браузерний раннер</p>
+          <h1 id="hero-title">Kyiv Runner</h1>
+          <p class="hero-copy">
+            Біжи крізь нічний Київ і атмосферний Львів, збирай монети,
+            відкривай райони, виконуй місії та тримай темп до фінішу.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://yehorkoshel-arch.github.io/game/">Грати зараз</a>
+            <a class="button ghost" href="https://github.com/yehorkoshel-arch/game">Репозиторій гри</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-grid" aria-label="Коротко про гру">
+        <article>
+          <span class="stat">12+</span>
+          <h2>Рівні й райони</h2>
+          <p>Київські та львівські маршрути з власними деталями, місіями й настроєм.</p>
+        </article>
+        <article>
+          <span class="stat">2</span>
+          <h2>Персонажі</h2>
+          <p>Андрій і Марічка мають повну анімацію бігу, стрибка, слайду й зміни смуг.</p>
+        </article>
+        <article>
+          <span class="stat">UA</span>
+          <h2>Локалізація</h2>
+          <p>Український HUD, репліки, субтитри та міські підказки без чужих заглушок.</p>
+        </article>
+      </section>
+
+      <section class="section city-showcase" id="cities">
+        <div class="section-heading">
+          <p class="eyebrow">Міста</p>
+          <h2>Два настрої однієї пригоди</h2>
+        </div>
+        <div class="city-card kyiv">
+          <img src="./assets/road-kyiv-night.png" alt="Нічна дорога Kyiv Runner" />
+          <div>
+            <h3>Київ</h3>
+            <p>
+              Мокрий асфальт, вогні, нічний skyline і широкі смуги для швидкого
+              раннер-геймплею.
+            </p>
+          </div>
+        </div>
+        <div class="city-card lviv">
+          <img src="./assets/lviv-parallax-buildings.png" alt="Львівські фасади Kyiv Runner" />
+          <div>
+            <h3>Львів</h3>
+            <p>
+              Ратуша, бруківка, гірлянди, історичні кам'яниці та львівські
+              дрібниці на фоні.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section features" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">Особливості</p>
+          <h2>Що вже є в грі</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>Місії</h3>
+            <p>Збір монет, дистанція, секретні маршрути й події на рівнях.</p>
+          </article>
+          <article>
+            <h3>Бонуси</h3>
+            <p>Щит, магніт, рюкзак, супер-стрибок і зброя для небезпечних моментів.</p>
+          </article>
+          <article>
+            <h3>Мультимова</h3>
+            <p>Меню, колекції та ігрові написи підготовлені для перемикання мов.</p>
+          </article>
+          <article>
+            <h3>Мобільність</h3>
+            <p>Canvas масштабується під різні екрани, зберігаючи читабельність UI.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section updates" id="updates">
+        <div class="section-heading">
+          <p class="eyebrow">Оновлення</p>
+          <h2>Фокус розробки</h2>
+        </div>
+        <ol class="timeline">
+          <li>
+            <strong>Львів</strong>
+            <span>Полірування знаків, бруківки, ратуші, фонових левів і трамвайної атмосфери.</span>
+          </li>
+          <li>
+            <strong>Геймплей</strong>
+            <span>Стабільний score, монети, бонуси, кнопка «Вогонь» і чистий game over.</span>
+          </li>
+          <li>
+            <strong>Веб-сторінка</strong>
+            <span>Окремий сайт проєкту для презентації гри, live-посилання й оновлень.</span>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Kyiv Runner</span>
+      <a href="https://yehorkoshel-arch.github.io/game/">Відкрити live-гру</a>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
